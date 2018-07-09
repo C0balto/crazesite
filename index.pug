@@ -1,0 +1,182 @@
+extends template.pug
+    
+block main
+
+    mixin articlesides(src, alt, title, text)
+        figure.frame-box
+            img.img-responsive(src=src, alt=alt)
+            h4= title
+            p.box= text
+    
+    mixin articlecenter(src, alt, title, text)
+        figure.frame-box-center
+            img.img-responsive(src=src, alt=alt)
+            h4= title
+            p.box= text
+    
+    mixin feature(text)
+           li.inner-list= text
+    
+    mixin midias(id)
+        li(id=id)
+                      
+    
+    - var dois = ['col-sm-2','col-md-2','col-lg-2']
+    - var quatro = ['col-sm-4','col-md-4','col-lg-4']
+    - var seis = ['col-sm-6', 'col-md-6', 'col-lg-6']
+    - var oito = ['col-sm-8','col-md-8','col-lg-8']
+    - var doze = ['col-sm-12', 'col-md-12', 'col-lg-12']
+    - var boxlist = ['col-sm-2', 'col-md-3', 'col-lg-3','box-list']
+    
+    section.container
+        .row
+            div(class=dois)
+            article(class=oito class=['features'])
+                h3 Craze Features
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non tristique velit. Suspendisse malesuada nunc quis nisi ullamcorper, a tempus mauris ullamcorper. Duis non massa leo
+            div(class=all2)
+
+        .row
+            article(class=quatro class=['box-cluster'])
+                figure.frame-box
+                    img.img-responsive(src='images/monitor.png' alt='monitor')
+                    h4 Flat Design
+                    p.pbox Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non tristique velit.
+                .rule-left
+            
+            article(class=quatro class=['box-cluster'])
+                figure.frame-box-center
+                    img.img-responsive(src='images/target.png' alt='alvo')
+                    h4 Marketable
+                    p.pbox Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non tristique velit.
+                .rule-center
+
+            article(class=quatro class=['box-cluster'])
+                figure.frame-box
+                    img.img-responsive(src='images/picture.png' alt='figura')
+                    h4 Edit Photos</h4>
+                    p.pbox Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non tristique velit.
+                .rule-right
+            
+            article(class=quatro class=['box-cluster'])
+                +articlesides('images/paleta.png', 'paletapintor','Flat Design', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non tristique velit.')
+
+            article(class=quatro class=['box-cluster'])
+                +articlecenter('images/human.png', 'humano', 'Marketable', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non tristique velit.')
+            
+            article(class=quatro class=['box-cluster'])
+                +articlesides('images/gear.png', 'catraca','Edit Photos', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non tristique velit.')
+            
+    section.container-fluid.player
+        .container
+            .row.video-container
+                article(class=seis class=['box-txt-video'])
+                    h3 Whats Craze all About?
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed elit vitae tortor consectetur semper sit amet sit amet neque. Quisque malesuada dui non venenatis viverra.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    p Ut at lobortis ligula. Aliquam elementum, augue nec malesuada commodo, lacus ante ultricies neque, et viverra felis nunc eget augue. Suspendisse pulvinar iaculis ornare.
+                    ul
+                        li
+                            span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        li
+                            span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                article(class=seis class=['embed-responsive-item'])
+                    .video-box
+                        iframe.video-frame(src='https://www.youtube.com/embed/aMidO7tJPBc' frameborder='0')
+    
+    section.container.carro-box
+        .slidercss
+            .slides#1(onmouseover='Stop()' onmouseleave='volta()')
+                p "Consectetur adipiscing elit. Aliquam elementum, augue nec malesuada commodo, lacus ante ultricies neque, et viverra felis nunc eget augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    h4 Sarah Hunt
+            
+            .slides#2(onmouseover='Stop()' onmouseleave='volta()')
+                p "Consectetur adipiscing elit. Aliquam elementum, augue nec malesuada commodo, lacus ante ultricies neque, et viverra felis nunc eget augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    h4 Lara Croft
+
+            .slides#3(onmouseover='Stop()' onmouseleave='volta()')
+                p "Consectetur adipiscing elit. Aliquam elementum, augue nec malesuada commodo, lacus ante ultricies neque, et viverra felis nunc eget augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    h4 Robin Rood        
+
+            ol.circles
+                li.circle-caption(onclick='navigator(0)')
+                li.circle-caption(onclick='navigator(1)')
+                li.circle-caption(onclick='navigator(2)')
+
+    section.container-fluid.zoom
+        .container
+            .row
+                article(class=doze class=['price-box'])
+                    h3 Princing Plans
+                    span Ut at lobortis ligula. Aliquam elementum, augue nec malesuada commodo, lacus ante ultricies neque, et viverra felis nunc eget augue. Suspendisse pulvinar iaculis ornare.Aliquam elementum, augue nec malesuada commodo, lacus ante ultricies neque, et viverra felis nunc eget augue.
+
+                div(class=boxlist)
+                    ul.stretch
+                        li.head-list Basic
+                        li.inner-list
+                            span.in-value $19
+                            span.in-value2 99
+                        +feature('feature 1')
+                        +feature('feature 2')
+                        +feature('feature 3')
+                        +feature('feature 4')
+                        +feature('feature 5')
+                        li.button-list 
+                            button.btn.btn-primary(type='button') Purchase
+                
+                div(class=boxlist)
+                    ul.stretch
+                        li.head-list Standard
+                        li.inner-list
+                            span.in-value $39
+                            span.in-value2 99
+                        +feature('feature 1')
+                        +feature('feature 2')
+                        +feature('feature 3')
+                        +feature('feature 4')
+                        +feature('feature 5')
+                        li.button-list 
+                            button.btn.btn-primary(type='button') Purchase
+                
+                div(class=boxlist)
+                    ul.stretch
+                        li.head-list Delux
+                        li.inner-list
+                            span.in-value $59
+                            span.in-value2 99
+                        +feature('feature 1')
+                        +feature('feature 2')
+                        +feature('feature 3')
+                        +feature('feature 4')
+                        +feature('feature 5')
+                        li.button-list 
+                            button.btn.btn-primary(type='button') Purchase
+                
+                div(class=boxlist)
+                    ul.stretch
+                        li.head-list Unlimited
+                        li.inner-list
+                            span.in-value $79
+                            span.in-value2 99
+                        +feature('feature 1')
+                        +feature('feature 2')
+                        +feature('feature 3')
+                        +feature('feature 4')
+                        +feature('feature 5')
+                        li.button-list 
+                            button.btn.btn-primary(type='button') Purchase
+    
+    section.container-fluid.social-box            
+        .row
+            article(class=doze class=['social-media'])
+                h3 Say Hi & Get in Touch
+                p  Ut at lobortis ligula. Aliquam elementum, augue nec malesuada commodo, lacus ante ultricies neque.
+
+                ul
+                    +midias('twitter')
+                    +midias('facebook')
+                    +midias('pinterest')
+                    +midias('gplus')
+                    +midias('linkedin')
+                    +midias('youtube')                    

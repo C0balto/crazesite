@@ -1,0 +1,23 @@
+mixin plataform(href, link, alt)
+    li
+        figure
+            a(href=href)
+                img(src=link, alt=alt)
+
+
+header.container
+        .row
+            .col-sm-2.col-md-2.col-lg-2
+            article.col-sm-4.col-md-4.col-lg-4.box-txt
+                h1 Craze
+                p.inner-box-txt A great new free psd theme to showcase your new app.
+                
+                ul#platforms
+                    +plataform('#','images/apple.png', 'apple')
+                    +plataform('#','images/android.png', 'android')
+                    +plataform('#','images/windows.png', 'windows')
+
+            figure.col-sm-4.col-md-4.col-lg-4.img-top
+                img.img-responsive(src="images/hand_cel.png", alt="celular")
+            
+            .col-sm-2.col-md-2.col-lg-2
