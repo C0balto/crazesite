@@ -382,6 +382,17 @@ footer {
 
 *, *::after, *::before { box-sizing: border-box }
 
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+
 .slidercss {
 	width: 800px;
 	height: 300px;
@@ -411,8 +422,9 @@ footer {
 	position:relative;
 	top:15px;
     left:38%;
-    
-    li {
+}
+
+.circle-caption {
     display: inline-block;
 	list-style: none;
 	text-align: center;
@@ -423,10 +435,9 @@ footer {
 	border-radius: 25px;
 	margin-left:15px;
 	transition-duration: 0.5s;
-    }
 }
 
-.circle-caption:hover {
+.active, .circle-caption:hover {
 	background-color: #166b8e;
 	transition-duration: 0.5s;
 

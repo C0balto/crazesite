@@ -1,44 +1,59 @@
-var myCarousel = 0;
-var time
-var clock = 4000; // setando o tempo do relogio
+
+var myCarousel = 1;
 var running = true;
 var first = true;
-volta();
+carousel();
+setInterval(carousel, 2000);
+
+$('.slides').mouseover(pare);
+$('.slides').mouseout(volta);
 
 function carousel() {
 	if(running == true){
 		var i;
 		var x = document.getElementsByClassName('slides');
 		for (i = 0; i < x.length; i++) {
-		x[i].style.display = "none";
+			x[i].style.display = "none";
 		}
 		myCarousel++;
 		if (myCarousel > x.length) {myCarousel = 1}    
 		x[myCarousel-1].style.display = "block";
-		time = setTimeout(carousel, clock); 
+		highlightdot(myCarousel-1);
 	}
 }
-	
-function Stop() {
+
+
+function pare() {
 	running = false;
 }
+
 function volta() {
-    
-	var aux = first ? setTimeout(function() { running = true; carousel()}, 1) : setTimeout(function() { running = true; carousel()}, clock);
-	first = false;
+	running = true;
 }
 
 function navigator(index) {
-	
 	var a = document.getElementsByClassName('slides');
-	 for(i = 0; i < a.length; i++) {
-		 a[i].style.display ='none';
-		 	if(index == i){
-				 a[i].style.display = 'block'
-				 clearTimeout(time);
-				 time = setTimeout(carousel, clock); 				 
-			 }
+	for(i = 0; i < a.length; i++) {
+		a[i].style.display ='none';
+		if(index == i){
+			a[i].style.display = 'block'
+			
+		}
+		highlightdot(index);
+	}
+}
 
-	 }
+function highlightdot(index) {
+	var circle = document.getElementsByClassName('circle-caption');
+	for(i = 0; i < circle.length; i++) {
+		if (index == i) {
+			
+			circle[i].className += ' active';
+		}else{
+			
+			circle[i].className = circle[i].className.replace(' active', '') 
+		}
+	}
+}
 
- }
+
