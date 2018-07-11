@@ -3,7 +3,7 @@ var myCarousel = 1;
 var running = true;
 var first = true;
 carousel();
-setInterval(carousel, 2000);
+setInterval(carousel, 4000);
 
 $('.slides').mouseover(pare);
 $('.slides').mouseout(volta);
@@ -11,7 +11,7 @@ $('.slides').mouseout(volta);
 function carousel() {
 	if(running == true){
 		var i;
-		var x = document.getElementsByClassName('slides');
+		var x = $('.slides');
 		for (i = 0; i < x.length; i++) {
 			x[i].style.display = "none";
 		}
@@ -32,7 +32,7 @@ function volta() {
 }
 
 function navigator(index) {
-	var a = document.getElementsByClassName('slides');
+	var a = $('.slides');
 	for(i = 0; i < a.length; i++) {
 		a[i].style.display ='none';
 		if(index == i){
@@ -44,7 +44,7 @@ function navigator(index) {
 }
 
 function highlightdot(index) {
-	var circle = document.getElementsByClassName('circle-caption');
+	var circle = $('.circle-caption');
 	for(i = 0; i < circle.length; i++) {
 		if (index == i) {
 			
