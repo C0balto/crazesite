@@ -1,5 +1,4 @@
-
-var myCarousel = 1;
+var myCarousel = 0;
 var running = true;
 var first = true;
 carousel();
@@ -11,14 +10,14 @@ $('.slides').mouseout(volta);
 function carousel() {
 	if(running == true){
 		var i;
-		var x = $('.slides');
+		var x = document.getElementsByClassName('slides');
 		for (i = 0; i < x.length; i++) {
 			x[i].style.display = "none";
 		}
 		myCarousel++;
 		if (myCarousel > x.length) {myCarousel = 1}    
 		x[myCarousel-1].style.display = "block";
-		highlightdot(myCarousel-1);
+		highlightdot(myCarousel -1);
 	}
 }
 
@@ -32,28 +31,22 @@ function volta() {
 }
 
 function navigator(index) {
-	var a = $('.slides');
+	var a = document.getElementsByClassName('slides');
 	for(i = 0; i < a.length; i++) {
 		a[i].style.display ='none';
-		if(index == i){
-			a[i].style.display = 'block'
-			
-		}
-		highlightdot(index);
 	}
+	highlightdot(index);
+	a[index].style.display = 'block';
+	myCarousel = index;
 }
 
 function highlightdot(index) {
-	var circle = $('.circle-caption');
-	for(i = 0; i < circle.length; i++) {
-		if (index == i) {
-			
-			circle[i].className += ' active';
-		}else{
-			
-			circle[i].className = circle[i].className.replace(' active', '') 
-		}
-	}
-}
+	var circle = document.getElementsByClassName('circle-caption');
 
+	for(i = 0; i < circle.length; i++) {
+		circle[i].className = circle[i].className.replace(' active', ''); 
+	}
+	circle[index].className += ' active';
+	
+}
 
